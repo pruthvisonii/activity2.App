@@ -1,0 +1,16 @@
+﻿<?xml version = "1.0" encoding = "UTF-8" ?>
+<!-- App.xaml -->
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               x:Class="activity2.App">
+    <Application.Resources>
+        <Shell x:Key="MainShell">
+            <FlyoutItem Title="Main Page" FlyoutDisplayOptions="AsSingleItem">
+                <ShellContent Route="MainPage" ContentTemplate="{DataTemplate local:MainPage}" />
+            </FlyoutItem>
+            <FlyoutItem Title="Holidays" FlyoutDisplayOptions="AsMultipleItems">
+                <ShellContent Route="HolidaysPage" ContentTemplate="{DataTemplate local:HolidaysPage}" />
+            </FlyoutItem>
+        </Shell>
+    </Application.Resources>
+</Application>

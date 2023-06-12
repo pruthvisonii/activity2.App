@@ -1,0 +1,48 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:activity2"
+             x:Class="activity2.HolidaysPage"
+             Title="Holidays Page">
+    <StackLayout>
+        <Label Text="Select Year" FontSize="20" />
+        <Picker x:Name="YearPicker" SelectedIndexChanged="OnYearPickerSelectedIndexChanged">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:Int32}">
+                    <x:Int32>2020</x:Int32>
+                    <x:Int32>2021</x:Int32>
+                    <x:Int32>2022</x:Int32>
+                    <!-- Add more years if needed -->
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+        <Label Text="Select Province" FontSize="20" />
+        <Picker x:Name="ProvincePicker" SelectedIndexChanged="OnProvincePickerSelectedIndexChanged">
+            <!-- Populate the picker with available provinces -->
+            <!-- You can bind the items source to a list of provinces if available -->
+        </Picker>
+
+        <ListView x:Name="HolidaysListView" SeparatorVisibility="Default">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <!-- Customize the layout to display the holiday details -->
+                    <ViewCell>
+                        <StackLayout Padding="10" BackgroundColor="#EEEEEE">
+                            <Label Text="{Binding Name}" FontSize="18" />
+                            <Label Text="{Binding Date}" FontSize="16" />
+                            <!-- Add more labels or UI elements to display additional details -->
+                            <Label Text="Provinces:" FontSize="16" FontAttributes="Bold" />
+                            <ListView ItemsSource="{Binding Provinces}" SeparatorVisibility="None">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Label Text="{Binding NameEn}" FontSize="14" />
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
